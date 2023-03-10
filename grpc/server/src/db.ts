@@ -1,6 +1,14 @@
-import { User, UserStatus } from '../proto/users_pb';
+import { User, UserStatus } from "../proto/users_pb";
 
-const userToClass = ({ id, name, age, status, groupsList, avatar, verified }: User.AsObject) => {
+export const userToClass = ({
+  id,
+  name,
+  age,
+  status,
+  groupsList,
+  avatar,
+  verified,
+}: User.AsObject) => {
   const user = new User();
   user.setId(id);
   user.setName(name);
@@ -15,20 +23,20 @@ const userToClass = ({ id, name, age, status, groupsList, avatar, verified }: Us
 export const users: User[] = [
   {
     id: 1,
-    name: 'Teddy',
+    name: "Teddy",
     age: 25,
     status: UserStatus.BUSY,
-    groupsList: ['car club'],
+    groupsList: ["car club"],
     avatar: undefined,
     verified: true,
   },
   {
     id: 2,
-    name: 'Joss',
+    name: "Joss",
     age: 13,
     status: UserStatus.OFFLINE,
-    groupsList: ['sewing club'],
-    avatar: 'nice.jpg',
+    groupsList: ["sewing club"],
+    avatar: "nice.jpg",
     verified: false,
   },
 ].map(userToClass);

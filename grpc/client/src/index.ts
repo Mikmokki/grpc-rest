@@ -18,20 +18,19 @@ const getUsers = (id: number) => {
     });
   });
 };
-
+const jim = new User();
+jim.setName('Jim');
+jim.setAge(10);
+jim.setId(20);
+jim.setStatus(UserStatus.OFFLINE);
+jim.setGroupsList(['football club', 'computer science guild']);
+jim.setVerified(true);
+const userList = [jim, jim, jim, jim, jim];
 const run = async () => {
   const user = await getUsers(1);
   // console.log(user.toString());
 
-  const jim = new User();
-  jim.setName('Jim');
-  jim.setAge(10);
-  jim.setId(20);
-  jim.setStatus(UserStatus.OFFLINE);
-  jim.setGroupsList(['football club', 'computer science guild']);
-  jim.setVerified(true);
-
-  createUsers([jim]);
+  createUsers(userList);
   // console.log(`\nCreated user ${jim}`);
 
   const users = await allUsers();
@@ -48,7 +47,7 @@ const test = async () => {
     const time = (new Date().getTime() - startTime) / 1000;
     console.log('time', time, 'requests', requests, 'requests/second', requests / time);
   }, 1000);
-  while (new Date().getTime() - startTime <= 10000) {
+  while (new Date().getTime() - startTime <= 100000) {
     await run();
     requests++;
   }
