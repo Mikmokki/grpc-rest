@@ -1,0 +1,23 @@
+version: "3.4"
+
+services:
+  client:
+    build: client
+    image: client
+    restart: "no"
+    volumes:
+      - ./client/:/app
+    ports:
+      - 7777:7777
+    depends_on:
+      - server
+  server:
+    build: server
+    image: server
+    volumes:
+      - ./server/:/app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+

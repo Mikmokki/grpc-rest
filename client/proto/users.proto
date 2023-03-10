@@ -16,6 +16,9 @@ message User {
     string name = 2;
     int32 age = 3;
     UserStatus status = 4;
+    repeated string groups=5;
+    optional string avatar=6;
+    bool verified=7;
 }
 
 message UserRequest {

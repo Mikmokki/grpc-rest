@@ -37,7 +37,7 @@ goog.exportSymbol('proto.users.UserStatus', null, global);
  * @constructor
  */
 proto.users.User = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.users.User.repeatedFields_, null);
 };
 goog.inherits(proto.users.User, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -68,6 +68,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.users.UserRequest.displayName = 'proto.users.UserRequest';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.users.User.repeatedFields_ = [5];
 
 
 
@@ -103,7 +110,10 @@ proto.users.User.toObject = function(includeInstance, msg) {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     age: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    status: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    status: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    groupsList: (f = jspb.Message.getRepeatedField(msg, 5)) == null ? undefined : f,
+    avatar: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    verified: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
   };
 
   if (includeInstance) {
@@ -155,6 +165,18 @@ proto.users.User.deserializeBinaryFromReader = function(msg, reader) {
     case 4:
       var value = /** @type {!proto.users.UserStatus} */ (reader.readEnum());
       msg.setStatus(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addGroups(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAvatar(value);
+      break;
+    case 7:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setVerified(value);
       break;
     default:
       reader.skipField();
@@ -210,6 +232,27 @@ proto.users.User.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0.0) {
     writer.writeEnum(
       4,
+      f
+    );
+  }
+  f = message.getGroupsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      5,
+      f
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 6));
+  if (f != null) {
+    writer.writeString(
+      6,
+      f
+    );
+  }
+  f = message.getVerified();
+  if (f) {
+    writer.writeBool(
+      7,
       f
     );
   }
@@ -285,6 +328,97 @@ proto.users.User.prototype.getStatus = function() {
  */
 proto.users.User.prototype.setStatus = function(value) {
   return jspb.Message.setProto3EnumField(this, 4, value);
+};
+
+
+/**
+ * repeated string groups = 5;
+ * @return {!Array<string>}
+ */
+proto.users.User.prototype.getGroupsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.users.User} returns this
+ */
+proto.users.User.prototype.setGroupsList = function(value) {
+  return jspb.Message.setField(this, 5, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.users.User} returns this
+ */
+proto.users.User.prototype.addGroups = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.users.User} returns this
+ */
+proto.users.User.prototype.clearGroupsList = function() {
+  return this.setGroupsList([]);
+};
+
+
+/**
+ * optional string avatar = 6;
+ * @return {string}
+ */
+proto.users.User.prototype.getAvatar = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.users.User} returns this
+ */
+proto.users.User.prototype.setAvatar = function(value) {
+  return jspb.Message.setField(this, 6, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.users.User} returns this
+ */
+proto.users.User.prototype.clearAvatar = function() {
+  return jspb.Message.setField(this, 6, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.users.User.prototype.hasAvatar = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional bool verified = 7;
+ * @return {boolean}
+ */
+proto.users.User.prototype.getVerified = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.users.User} returns this
+ */
+proto.users.User.prototype.setVerified = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 7, value);
 };
 
 

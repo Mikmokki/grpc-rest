@@ -10,16 +10,23 @@ import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty
 export class User extends jspb.Message { 
     getId(): number;
     setId(value: number): User;
-
     getName(): string;
     setName(value: string): User;
-
     getAge(): number;
     setAge(value: number): User;
-
     getStatus(): UserStatus;
     setStatus(value: UserStatus): User;
+    clearGroupsList(): void;
+    getGroupsList(): Array<string>;
+    setGroupsList(value: Array<string>): User;
+    addGroups(value: string, index?: number): string;
 
+    hasAvatar(): boolean;
+    clearAvatar(): void;
+    getAvatar(): string | undefined;
+    setAvatar(value: string): User;
+    getVerified(): boolean;
+    setVerified(value: boolean): User;
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): User.AsObject;
@@ -37,13 +44,15 @@ export namespace User {
         name: string,
         age: number,
         status: UserStatus,
+        groupsList: Array<string>,
+        avatar?: string,
+        verified: boolean,
     }
 }
 
 export class UserRequest extends jspb.Message { 
     getId(): number;
     setId(value: number): UserRequest;
-
 
     serializeBinary(): Uint8Array;
     toObject(includeInstance?: boolean): UserRequest.AsObject;
