@@ -1,6 +1,6 @@
 import { User, UserStatus } from '../proto/users_pb';
 
-export function userToClass({ id, name, age, status, groupsList, avatar, verified }: User.AsObject) {
+const userToClass = ({ id, name, age, status, groupsList, avatar, verified }: User.AsObject) => {
   const user = new User();
   user.setId(id);
   user.setName(name);
@@ -10,7 +10,7 @@ export function userToClass({ id, name, age, status, groupsList, avatar, verifie
   avatar && user.setAvatar(avatar);
   user.setVerified(verified);
   return user;
-}
+};
 
 export const users: User[] = [
   {

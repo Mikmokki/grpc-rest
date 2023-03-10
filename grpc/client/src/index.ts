@@ -1,31 +1,13 @@
 import { User, UserStatus, UserRequest } from '../proto/users_pb';
 import { UsersClient } from '../proto/users_grpc_pb';
 import { credentials } from 'grpc';
-import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
-function allUsers() {
-  return new Promise<User[]>((resolve, reject) => {
-    const stream = client.getUsers(new Empty());
-    const users: User[] = [];
-    stream.on('data', (user) => users.push(user));
-    stream.on('error', reject);
-    stream.on('end', () => resolve(users));
-  });
-}
-
-function createUsers(users: User[]) {
-  const stream = client.createUser(noop);
-  for (const user of users) {
-    stream.write(user);
-  }
-  stream.end();
-}
+import { allUsers } from './all-users';
+import { createUsers } from './create-users';
 
 const port = 3000;
 const client = new UsersClient(`localhost:${port}`, credentials.createInsecure());
 
-const noop = () => {};
-
-function getUsers(id: number) {
+const getUsers = (id: number) => {
   return new Promise<User>((resolve, reject) => {
     const request = new UserRequest();
     request.setId(id);
@@ -35,9 +17,9 @@ function getUsers(id: number) {
       else resolve(user);
     });
   });
-}
+};
 
-async function run() {
+const run = async () => {
   const user = await getUsers(1);
   // console.log(user.toString());
 
@@ -57,7 +39,7 @@ async function run() {
   // for (const user of users) {
   //   console.log(user.toString());
   // }
-}
+};
 // run();
 const test = async () => {
   const startTime = new Date().getTime();

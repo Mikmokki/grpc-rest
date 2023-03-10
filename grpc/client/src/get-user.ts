@@ -1,5 +1,5 @@
-import { User, UserRequest } from "../proto/users_pb";
-import { client } from "./utils";
+import { User, UserRequest } from '../proto/users_pb';
+import { client } from './utils';
 
 export default function getUsers(id: number) {
   return new Promise<User>((resolve, reject) => {

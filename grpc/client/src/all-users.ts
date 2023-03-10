@@ -2,7 +2,7 @@ import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { User } from '../proto/users_pb';
 import { client } from './utils';
 
-export default function allUsers() {
+export const allUsers = () => {
   return new Promise<User[]>((resolve, reject) => {
     const stream = client.getUsers(new Empty());
     const users: User[] = [];
@@ -10,4 +10,4 @@ export default function allUsers() {
     stream.on('error', reject);
     stream.on('end', () => resolve(users));
   });
-}
+};
