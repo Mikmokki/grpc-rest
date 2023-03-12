@@ -1,15 +1,16 @@
-import { User, UserStatus } from '../proto/users_pb';
-import { getUser, createUsers, getUsers, createUser } from './functions';
+import { User, UserStatus } from '../types';
+import { getUsers, createUser, getUser } from './apis';
 
-const testUser = new User();
-testUser.setName('Jaakko');
-testUser.setAge(10);
-testUser.setId(20);
-testUser.setStatus(UserStatus.OFFLINE);
-testUser.setGroupsList(['football club', 'computer science guild']);
-testUser.setVerified(true);
-const userList5 = [testUser, testUser, testUser, testUser, testUser];
-const userList1 = [testUser];
+const testUser: User = {
+  name: 'Jaakko',
+  age: 10,
+  id: 20,
+  status: UserStatus.AVAILABLE,
+  groupsList: ['baseball group', 'ice hockey watchers'],
+  verified: true,
+};
+
+const userList = [testUser, testUser, testUser, testUser, testUser];
 
 const testGetAll = async () => {
   const startTime = new Date().getTime();
@@ -49,34 +50,38 @@ const testCreateOne = async () => {
     console.log('Testing createOne:', 'time', time, 'requests', requests, 'requests/second', requests / time);
   }, 1000);
   while (new Date().getTime() - startTime <= 10000) {
-    await createUsers(userList1);
+    await createUser(testUser);
     requests++;
   }
   const endTime = (new Date().getTime() - startTime) / 1000;
   clearInterval(interval);
   console.log('Testing createOne:', 'time', endTime, 'requests', requests, 'requests/second', requests / endTime);
 };
-const testCreateFive = async () => {
-  const startTime = new Date().getTime();
-  let requests = 0;
-  const interval = setInterval(() => {
-    const time = (new Date().getTime() - startTime) / 1000;
-    console.log('Testing createFive:', 'time', time, 'requests', requests, 'requests/second', requests / time);
-  }, 1000);
+// const testCreateFive = () => {
+//   const startTime = new Date().getTime();
+//   let requests = 0;
+//   const interval = setInterval(() => {
+//     const time = (new Date().getTime() - startTime) / 1000;
+//     console.log('Testing createFive:', 'time', time, 'requests', requests, 'requests/second', requests / time);
+//   }, 1000);
 
-  while (new Date().getTime() - startTime <= 10000) {
-    await createUsers(userList5);
-    requests++;
-  }
-  const endTime = (new Date().getTime() - startTime) / 1000;
-  clearInterval(interval);
-  console.log('Testing createFive:', 'time', endTime, 'requests', requests, 'requests/second', requests / endTime);
-};
+//   while (new Date().getTime() - startTime <= 10000) {
+//     const stream = client.createUser(() => {});
+//     for (const user of userList5) {
+//       stream.write(user);
+//     }
+//     stream.end();
+//     requests++;
+//   }
+//   const endTime = (new Date().getTime() - startTime) / 1000;
+//   clearInterval(interval);
+//   console.log('Testing createFive:', 'time', endTime, 'requests', requests, 'requests/second', requests / endTime);
+// };
 
 const runAllTests = async () => {
   await testGetAll();
   await testGetOne();
   await testCreateOne();
-  await testCreateFive();
+  // testCreateFive();
 };
 runAllTests();

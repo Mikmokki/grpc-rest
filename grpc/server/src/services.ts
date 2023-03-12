@@ -1,7 +1,6 @@
 import {
   ServerUnaryCall,
   sendUnaryData,
-  ServiceError,
   ServerWritableStream,
   ServerReadableStream,
 } from "grpc";
@@ -34,18 +33,11 @@ export class UsersServer implements IUsersServer {
     call: ServerReadableStream<Empty>,
     callback: sendUnaryData<Empty>
   ) {
-    // console.log(`createUsers: creating new users from stream.`);
-
-    let userCount = 0;
-
     call.on("data", (u) => {
-      userCount++;
       u;
-      // users.push(u);
     });
 
     call.on("end", () => {
-      // console.log(`Created ${userCount} new user(s).`);
       callback(null, new Empty());
     });
   }
