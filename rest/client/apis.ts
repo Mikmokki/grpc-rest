@@ -5,7 +5,7 @@ export const getUsers = async (): Promise<User[]> => {
   return await res.json();
 };
 
-export const createUser = async (users: User): Promise<void> => {
+export const createUsers = async (users: User[]): Promise<void> => {
   await fetch(`http://localhost:5000/users`, {
     method: 'POST',
     body: JSON.stringify(users),
