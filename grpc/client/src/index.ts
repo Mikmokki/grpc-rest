@@ -22,7 +22,7 @@ const testWrapper = async (name: string, f: () => Promise<any>) => {
   const interval = setInterval(() => {
     const time = (new Date().getTime() - startTime) / 1000;
     console.log(time, requests, requests / time);
-  }, 1000);
+  }, 5000);
   while (new Date().getTime() - startTime <= 100000) {
     await f();
     requests++;
