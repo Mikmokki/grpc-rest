@@ -392,6 +392,8 @@ Testing function createUser ended
 
 ## Test 5
 
+Testing function getUsersStream
+time: second request count request/second
 5 3119 623.8
 10 6179 617.9
 15 9273 618.2
