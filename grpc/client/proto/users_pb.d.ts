@@ -70,6 +70,28 @@ export namespace UserRequest {
     }
 }
 
+export class UsersResponse extends jspb.Message { 
+    clearUsersList(): void;
+    getUsersList(): Array<User>;
+    setUsersList(value: Array<User>): UsersResponse;
+    addUsers(value?: User, index?: number): User;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): UsersResponse.AsObject;
+    static toObject(includeInstance: boolean, msg: UsersResponse): UsersResponse.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: UsersResponse, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): UsersResponse;
+    static deserializeBinaryFromReader(message: UsersResponse, reader: jspb.BinaryReader): UsersResponse;
+}
+
+export namespace UsersResponse {
+    export type AsObject = {
+        usersList: Array<User.AsObject>,
+    }
+}
+
 export enum UserStatus {
     UNKNOWN = 0,
     OFFLINE = 1,

@@ -1,39 +1,30 @@
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { User, UserRequest } from '../proto/users_pb';
-import { client, noop } from './utils';
-import * as grpc from 'grpc';
+import { client } from './utils';
 
-export const getUsers = () => {
+export const getUsersStream = () => {
   return new Promise<User[]>((resolve, reject) => {
-    const stream = client.getUsers(new Empty());
+    const stream = client.getUsersStream(new Empty());
     const users: User[] = [];
     stream.on('data', (user) => users.push(user));
     stream.on('error', reject);
     stream.on('end', () => resolve(users));
   });
 };
-
-export const createUsers = (users: User[]): Promise<void> => {
-  return new Promise<void>((resolve, reject) => {
-    const stream = client.createUser((err, response) => {
-      if (err) {
-        reject(err);
-        return;
-      }
+export const getUsersUnary = () => {
+  return new Promise<User[]>((resolve, reject) => {
+    client.getUsersUnary(new Empty(), (err, response) => {
+      if (err) reject(err);
+      else resolve(response.getUsersList());
     });
+  });
+};
 
-    users.forEach((user) => {
-      stream.write(user);
-    });
-
-    stream.end();
-
-    stream.on('status', (status) => {
-      if (status.code !== grpc.status.OK) {
-        reject(new Error(`RPC failed with status code: ${status.code}`));
-        return;
-      }
-      resolve();
+export const createUser = (user: User) => {
+  return new Promise<Empty>((resolve, reject) => {
+    client.createUser(user, (err, user) => {
+      if (err) reject(err);
+      else resolve(user);
     });
   });
 };

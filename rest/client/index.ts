@@ -1,5 +1,5 @@
 import { User, UserStatus } from '../types';
-import { getUsers, createUsers, getUser } from './apis';
+import { getUsers, createUser, getUser } from './apis';
 
 const testUser: User = {
   name: 'Jaakko',
@@ -9,28 +9,33 @@ const testUser: User = {
   groupsList: ['baseball group', 'ice hockey watchers'],
   verified: true,
 };
-const userList5 = [testUser, testUser, testUser, testUser, testUser];
-const userList1 = [testUser];
 
 const testWrapper = async (name: string, f: () => Promise<any>) => {
-  const startTime = new Date().getTime();
+  console.log('Testing function', name);
+  console.log('time: second', 'request count', 'request/second');
+
+  let startTime = new Date().getTime();
   let requests = 0;
+  while (new Date().getTime() - startTime <= 30000) {
+    await f();
+  }
+  startTime = new Date().getTime();
   const interval = setInterval(() => {
     const time = (new Date().getTime() - startTime) / 1000;
-    console.log('Testing', name, 'time', time, 'requests', requests, 'requests/second', requests / time);
+    console.log(time, requests, requests / time);
   }, 1000);
-  while (new Date().getTime() - startTime <= 10000) {
+  while (new Date().getTime() - startTime <= 100000) {
     await f();
     requests++;
   }
   const endTime = (new Date().getTime() - startTime) / 1000;
   clearInterval(interval);
-  console.log('Testing', name, 'time', endTime, 'requests', requests, 'requests/second', requests / endTime);
+  console.log(endTime, requests, requests / endTime);
+  console.log('Testing function', name, 'ended');
 };
 const runAllTests = async () => {
-  await testWrapper('GetAll', getUsers);
-  await testWrapper('GetOne', () => getUser(1));
-  await testWrapper('CreateOne', () => createUsers(userList1));
-  await testWrapper('CreateFive', () => createUsers(userList5));
+  await testWrapper('GetUsers', getUsers);
+  await testWrapper('GetUser', () => getUser(1));
+  await testWrapper('CreateUser', () => createUser(testUser));
 };
 runAllTests();

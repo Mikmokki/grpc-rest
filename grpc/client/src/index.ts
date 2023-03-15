@@ -1,5 +1,5 @@
 import { User, UserStatus } from '../proto/users_pb';
-import { getUser, createUsers, getUsers } from './functions';
+import { getUser, createUser, getUsersUnary, getUsersStream } from './functions';
 
 const testUser = new User();
 testUser.setName('Jaakko');
@@ -8,28 +8,34 @@ testUser.setId(20);
 testUser.setStatus(UserStatus.OFFLINE);
 testUser.setGroupsList(['football club', 'computer science guild']);
 testUser.setVerified(true);
-const userList5 = [testUser, testUser, testUser, testUser, testUser];
-const userList1 = [testUser];
 
 const testWrapper = async (name: string, f: () => Promise<any>) => {
-  const startTime = new Date().getTime();
+  console.log('Testing function', name);
+  console.log('time: second', 'request count', 'request/second');
+
+  let startTime = new Date().getTime();
   let requests = 0;
+  while (new Date().getTime() - startTime <= 30000) {
+    await f();
+  }
+  startTime = new Date().getTime();
   const interval = setInterval(() => {
     const time = (new Date().getTime() - startTime) / 1000;
-    console.log('Testing', name, 'time', time, 'requests', requests, 'requests/second', requests / time);
+    console.log(time, requests, requests / time);
   }, 1000);
-  while (new Date().getTime() - startTime <= 10000) {
+  while (new Date().getTime() - startTime <= 100000) {
     await f();
     requests++;
   }
   const endTime = (new Date().getTime() - startTime) / 1000;
   clearInterval(interval);
-  console.log('Testing', name, 'time', endTime, 'requests', requests, 'requests/second', requests / endTime);
+  console.log(endTime, requests, requests / endTime);
+  console.log('Testing function', name, 'ended');
 };
 const runAllTests = async () => {
-  await testWrapper('GetAll', getUsers);
-  await testWrapper('GetOne', () => getUser(1));
-  await testWrapper('CreateOne', () => createUsers(userList1));
-  await testWrapper('CreateFive', () => createUsers(userList5));
+  await testWrapper('getUsersStream', getUsersStream);
+  await testWrapper('getUsersUnary', getUsersUnary);
+  await testWrapper('getUser', () => getUser(1));
+  await testWrapper('createUser', () => createUser(testUser));
 };
 runAllTests();
