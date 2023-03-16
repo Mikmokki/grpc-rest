@@ -1705,6 +1705,314 @@ timestamps = [
     100,
 ]
 
+pc_rest_getUsers_avg = np.mean(
+    [
+        pc_rest_getUsers1[:, 2],
+        pc_rest_getUsers2[:, 2],
+        pc_rest_getUsers3[:, 2],
+        pc_rest_getUsers4[:, 2],
+        pc_rest_getUsers5[:, 2],
+    ],
+    axis=0,
+)
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
+    pc_rest_getUsers1[:, 0],
+    pc_rest_getUsers1[:, 2],
+    label="testi 1",
+)
+axs[0].plot(
+    pc_rest_getUsers2[:, 0],
+    pc_rest_getUsers2[:, 2],
+    label="testi 2",
+)
+axs[0].plot(
+    pc_rest_getUsers3[:, 0],
+    pc_rest_getUsers3[:, 2],
+    label="testi 3",
+)
+axs[0].plot(
+    pc_rest_getUsers4[:, 0],
+    pc_rest_getUsers4[:, 2],
+    label="testi 4",
+)
+axs[0].plot(
+    pc_rest_getUsers5[:, 0],
+    pc_rest_getUsers5[:, 2],
+    label="testi 5",
+)
+axs[0].plot(
+    timestamps,
+    pc_rest_getUsers_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[0].legend()
+axs[0].set_title("PC")
+
+laptop_rest_getUsers_avg = np.mean(
+    [
+        laptop_rest_getUsers1[:, 2],
+        laptop_rest_getUsers2[:, 2],
+        laptop_rest_getUsers3[:, 2],
+        laptop_rest_getUsers4[:, 2],
+        laptop_rest_getUsers5[:, 2],
+    ],
+    axis=0,
+)
+axs[1].plot(
+    laptop_rest_getUsers1[:, 0],
+    laptop_rest_getUsers1[:, 2],
+    label="testi 1",
+)
+axs[1].plot(
+    laptop_rest_getUsers2[:, 0],
+    laptop_rest_getUsers2[:, 2],
+    label="testi 2",
+)
+axs[1].plot(
+    laptop_rest_getUsers3[:, 0],
+    laptop_rest_getUsers3[:, 2],
+    label="testi 3",
+)
+axs[1].plot(
+    laptop_rest_getUsers4[:, 0],
+    laptop_rest_getUsers4[:, 2],
+    label="testi 4",
+)
+axs[1].plot(
+    laptop_rest_getUsers5[:, 0],
+    laptop_rest_getUsers5[:, 2],
+    label="testi 5",
+)
+axs[1].plot(
+    timestamps,
+    laptop_rest_getUsers_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[1].legend()
+axs[1].set_title("Laptop")
+
+fig.suptitle("REST getUsers")
+
+plt.tight_layout()
+
+plt.savefig("rest_get_users.png")
+
+
+pc_rest_getUser_avg = np.mean(
+    [
+        pc_rest_getUser1[:, 2],
+        pc_rest_getUser2[:, 2],
+        pc_rest_getUser3[:, 2],
+        pc_rest_getUser4[:, 2],
+        pc_rest_getUser5[:, 2],
+    ],
+    axis=0,
+)
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
+    pc_rest_getUser1[:, 0],
+    pc_rest_getUser1[:, 2],
+    label="testi 1",
+)
+axs[0].plot(
+    pc_rest_getUser2[:, 0],
+    pc_rest_getUser2[:, 2],
+    label="testi 2",
+)
+axs[0].plot(
+    pc_rest_getUser3[:, 0],
+    pc_rest_getUser3[:, 2],
+    label="testi 3",
+)
+axs[0].plot(
+    pc_rest_getUser4[:, 0],
+    pc_rest_getUser4[:, 2],
+    label="testi 4",
+)
+axs[0].plot(
+    pc_rest_getUser5[:, 0],
+    pc_rest_getUser5[:, 2],
+    label="testi 5",
+)
+axs[0].plot(
+    timestamps,
+    pc_rest_getUser_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[0].legend()
+axs[0].set_title("PC")
+
+laptop_rest_getUser_avg = np.mean(
+    [
+        laptop_rest_getUser1[:, 2],
+        laptop_rest_getUser2[:, 2],
+        laptop_rest_getUser3[:, 2],
+        laptop_rest_getUser4[:, 2],
+        laptop_rest_getUser5[:, 2],
+    ],
+    axis=0,
+)
+axs[1].plot(
+    laptop_rest_getUser1[:, 0],
+    laptop_rest_getUser1[:, 2],
+    label="testi 1",
+)
+axs[1].plot(
+    laptop_rest_getUser2[:, 0],
+    laptop_rest_getUser2[:, 2],
+    label="testi 2",
+)
+axs[1].plot(
+    laptop_rest_getUser3[:, 0],
+    laptop_rest_getUser3[:, 2],
+    label="testi 3",
+)
+axs[1].plot(
+    laptop_rest_getUser4[:, 0],
+    laptop_rest_getUser4[:, 2],
+    label="testi 4",
+)
+axs[1].plot(
+    laptop_rest_getUser5[:, 0],
+    laptop_rest_getUser5[:, 2],
+    label="testi 5",
+)
+axs[1].plot(
+    timestamps,
+    laptop_rest_getUser_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[1].legend()
+axs[1].set_title("Laptop")
+
+fig.suptitle("REST getUser")
+
+plt.tight_layout()
+
+plt.savefig("rest_get_user.png")
+
+pc_rest_createUser_avg = np.mean(
+    [
+        pc_rest_createUser1[:, 2],
+        pc_rest_createUser2[:, 2],
+        pc_rest_createUser3[:, 2],
+        pc_rest_createUser4[:, 2],
+        pc_rest_createUser5[:, 2],
+    ],
+    axis=0,
+)
+
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
+    pc_rest_createUser1[:, 0],
+    pc_rest_createUser1[:, 2],
+    label="testi 1",
+)
+axs[0].plot(
+    pc_rest_createUser2[:, 0],
+    pc_rest_createUser2[:, 2],
+    label="testi 2",
+)
+axs[0].plot(
+    pc_rest_createUser3[:, 0],
+    pc_rest_createUser3[:, 2],
+    label="testi 3",
+)
+axs[0].plot(
+    pc_rest_createUser4[:, 0],
+    pc_rest_createUser4[:, 2],
+    label="testi 4",
+)
+axs[0].plot(
+    pc_rest_createUser5[:, 0],
+    pc_rest_createUser5[:, 2],
+    label="testi 5",
+)
+axs[0].plot(
+    timestamps,
+    pc_rest_createUser_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[0].legend()
+axs[0].set_title("PC")
+
+laptop_rest_createUser_avg = np.mean(
+    [
+        laptop_rest_createUser1[:, 2],
+        laptop_rest_createUser2[:, 2],
+        laptop_rest_createUser3[:, 2],
+        laptop_rest_createUser4[:, 2],
+        laptop_rest_createUser5[:, 2],
+    ],
+    axis=0,
+)
+axs[1].plot(
+    laptop_rest_createUser1[:, 0],
+    laptop_rest_createUser1[:, 2],
+    label="testi 1",
+)
+axs[1].plot(
+    laptop_rest_createUser2[:, 0],
+    laptop_rest_createUser2[:, 2],
+    label="testi 2",
+)
+axs[1].plot(
+    laptop_rest_createUser3[:, 0],
+    laptop_rest_createUser3[:, 2],
+    label="testi 3",
+)
+axs[1].plot(
+    laptop_rest_createUser4[:, 0],
+    laptop_rest_createUser4[:, 2],
+    label="testi 4",
+)
+axs[1].plot(
+    laptop_rest_createUser5[:, 0],
+    laptop_rest_createUser5[:, 2],
+    label="testi 5",
+)
+axs[1].plot(
+    timestamps,
+    laptop_rest_createUser_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[1].legend()
+axs[1].set_title("Laptop")
+
+fig.suptitle("REST createUser")
+
+plt.tight_layout()
+
+plt.savefig("rest_create_user.png")
+
 pc_grpc_getUsersStream_avg = np.mean(
     [
         pc_grpc_getUsersStream1[:, 2],
@@ -1715,33 +2023,34 @@ pc_grpc_getUsersStream_avg = np.mean(
     ],
     axis=0,
 )
-fig, ax = plt.subplots()
-ax.plot(
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
     pc_grpc_getUsersStream1[:, 0],
     pc_grpc_getUsersStream1[:, 2],
     label="testi 1",
 )
-ax.plot(
+axs[0].plot(
     pc_grpc_getUsersStream2[:, 0],
     pc_grpc_getUsersStream2[:, 2],
     label="testi 2",
 )
-ax.plot(
+axs[0].plot(
     pc_grpc_getUsersStream3[:, 0],
     pc_grpc_getUsersStream3[:, 2],
     label="testi 3",
 )
-ax.plot(
+axs[0].plot(
     pc_grpc_getUsersStream4[:, 0],
     pc_grpc_getUsersStream4[:, 2],
     label="testi 4",
 )
-ax.plot(
+axs[0].plot(
     pc_grpc_getUsersStream5[:, 0],
     pc_grpc_getUsersStream5[:, 2],
     label="testi 5",
 )
-ax.plot(
+axs[0].plot(
     timestamps,
     pc_grpc_getUsersStream_avg,
     label="average",
@@ -1750,11 +2059,61 @@ ax.plot(
     linewidth=2,
 )
 
-ax.legend()
-ax.set_title("PC gRPC getUsersStream")
+axs[0].legend()
+axs[0].set_title("PC")
 
-# Save the figure as an image file
-plt.savefig("pc_grpc_getUsersStream.png")
+laptop_grpc_getUsersStream_avg = np.mean(
+    [
+        laptop_grpc_getUsersStream1[:, 2],
+        laptop_grpc_getUsersStream2[:, 2],
+        laptop_grpc_getUsersStream3[:, 2],
+        laptop_grpc_getUsersStream4[:, 2],
+        laptop_grpc_getUsersStream5[:, 2],
+    ],
+    axis=0,
+)
+axs[1].plot(
+    laptop_grpc_getUsersStream1[:, 0],
+    laptop_grpc_getUsersStream1[:, 2],
+    label="testi 1",
+)
+axs[1].plot(
+    laptop_grpc_getUsersStream2[:, 0],
+    laptop_grpc_getUsersStream2[:, 2],
+    label="testi 2",
+)
+axs[1].plot(
+    laptop_grpc_getUsersStream3[:, 0],
+    laptop_grpc_getUsersStream3[:, 2],
+    label="testi 3",
+)
+axs[1].plot(
+    laptop_grpc_getUsersStream4[:, 0],
+    laptop_grpc_getUsersStream4[:, 2],
+    label="testi 4",
+)
+axs[1].plot(
+    laptop_grpc_getUsersStream5[:, 0],
+    laptop_grpc_getUsersStream5[:, 2],
+    label="testi 5",
+)
+axs[1].plot(
+    timestamps,
+    laptop_grpc_getUsersStream_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[1].legend()
+axs[1].set_title("Laptop")
+
+fig.suptitle("gRPC getUsersStream")
+
+plt.tight_layout()
+
+plt.savefig("grpc_get_users_stream.png")
 
 
 pc_grpc_getUsersUnary_avg = np.mean(
@@ -1767,33 +2126,34 @@ pc_grpc_getUsersUnary_avg = np.mean(
     ],
     axis=0,
 )
-fig, ax = plt.subplots()
-ax.plot(
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
     pc_grpc_getUsersUnary1[:, 0],
     pc_grpc_getUsersUnary1[:, 2],
     label="testi 1",
 )
-ax.plot(
+axs[0].plot(
     pc_grpc_getUsersUnary2[:, 0],
     pc_grpc_getUsersUnary2[:, 2],
     label="testi 2",
 )
-ax.plot(
+axs[0].plot(
     pc_grpc_getUsersUnary3[:, 0],
     pc_grpc_getUsersUnary3[:, 2],
     label="testi 3",
 )
-ax.plot(
+axs[0].plot(
     pc_grpc_getUsersUnary4[:, 0],
     pc_grpc_getUsersUnary4[:, 2],
     label="testi 4",
 )
-ax.plot(
+axs[0].plot(
     pc_grpc_getUsersUnary5[:, 0],
     pc_grpc_getUsersUnary5[:, 2],
     label="testi 5",
 )
-ax.plot(
+axs[0].plot(
     timestamps,
     pc_grpc_getUsersUnary_avg,
     label="average",
@@ -1802,165 +2162,8 @@ ax.plot(
     linewidth=2,
 )
 
-ax.legend()
-ax.set_title("PC gRPC getUsersUnary")
-
-# Save the figure as an image file
-plt.savefig("pc_grpc_getUsersUnary.png")
-
-pc_grpc_getUser_avg = np.mean(
-    [
-        pc_grpc_getUser1[:, 2],
-        pc_grpc_getUser2[:, 2],
-        pc_grpc_getUser3[:, 2],
-        pc_grpc_getUser4[:, 2],
-        pc_grpc_getUser5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    pc_grpc_getUser1[:, 0],
-    pc_grpc_getUser1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    pc_grpc_getUser2[:, 0],
-    pc_grpc_getUser2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    pc_grpc_getUser3[:, 0],
-    pc_grpc_getUser3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    pc_grpc_getUser4[:, 0],
-    pc_grpc_getUser4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    pc_grpc_getUser5[:, 0],
-    pc_grpc_getUser5[:, 2],
-    label="testi 5",
-)
-ax.plot(
-    timestamps,
-    pc_grpc_getUser_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
-)
-
-ax.legend()
-ax.set_title("PC gRPC getUser")
-
-# Save the figure as an image file
-plt.savefig("pc_grpc_getUser.png")
-
-pc_grpc_createUser_avg = np.mean(
-    [
-        pc_grpc_createUser1[:, 2],
-        pc_grpc_createUser2[:, 2],
-        pc_grpc_createUser3[:, 2],
-        pc_grpc_createUser4[:, 2],
-        pc_grpc_createUser5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    pc_grpc_createUser1[:, 0],
-    pc_grpc_createUser1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    pc_grpc_createUser2[:, 0],
-    pc_grpc_createUser2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    pc_grpc_createUser3[:, 0],
-    pc_grpc_createUser3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    pc_grpc_createUser4[:, 0],
-    pc_grpc_createUser4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    pc_grpc_createUser5[:, 0],
-    pc_grpc_createUser5[:, 2],
-    label="testi 5",
-)
-ax.plot(
-    timestamps,
-    pc_grpc_createUser_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
-)
-
-ax.legend()
-ax.set_title("PC gRPC createUser")
-
-# Save the figure as an image file
-plt.savefig("pc_grpc_createUser.png")
-
-laptop_grpc_getUsersStream_avg = np.mean(
-    [
-        laptop_grpc_getUsersStream1[:, 2],
-        laptop_grpc_getUsersStream2[:, 2],
-        laptop_grpc_getUsersStream3[:, 2],
-        laptop_grpc_getUsersStream4[:, 2],
-        laptop_grpc_getUsersStream5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    laptop_grpc_getUsersStream1[:, 0],
-    laptop_grpc_getUsersStream1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    laptop_grpc_getUsersStream2[:, 0],
-    laptop_grpc_getUsersStream2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    laptop_grpc_getUsersStream3[:, 0],
-    laptop_grpc_getUsersStream3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    laptop_grpc_getUsersStream4[:, 0],
-    laptop_grpc_getUsersStream4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    laptop_grpc_getUsersStream5[:, 0],
-    laptop_grpc_getUsersStream5[:, 2],
-    label="testi 5",
-)
-ax.plot(
-    timestamps,
-    laptop_grpc_getUsersStream_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
-)
-
-ax.legend()
-ax.set_title("Laptop gRPC getUsersStream")
-
-# Save the figure as an image file
-plt.savefig("laptop_grpc_getUsersStream.png")
-
+axs[0].legend()
+axs[0].set_title("PC")
 
 laptop_grpc_getUsersUnary_avg = np.mean(
     [
@@ -1972,33 +2175,32 @@ laptop_grpc_getUsersUnary_avg = np.mean(
     ],
     axis=0,
 )
-fig, ax = plt.subplots()
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUsersUnary1[:, 0],
     laptop_grpc_getUsersUnary1[:, 2],
     label="testi 1",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUsersUnary2[:, 0],
     laptop_grpc_getUsersUnary2[:, 2],
     label="testi 2",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUsersUnary3[:, 0],
     laptop_grpc_getUsersUnary3[:, 2],
     label="testi 3",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUsersUnary4[:, 0],
     laptop_grpc_getUsersUnary4[:, 2],
     label="testi 4",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUsersUnary5[:, 0],
     laptop_grpc_getUsersUnary5[:, 2],
     label="testi 5",
 )
-ax.plot(
+axs[1].plot(
     timestamps,
     laptop_grpc_getUsersUnary_avg,
     label="average",
@@ -2007,11 +2209,64 @@ ax.plot(
     linewidth=2,
 )
 
-ax.legend()
-ax.set_title("Laptop gRPC getUsersUnary")
+axs[1].legend()
+axs[1].set_title("Laptop")
 
-# Save the figure as an image file
-plt.savefig("laptop_grpc_getUsersUnary.png")
+fig.suptitle("gRPC getUsersUnary")
+
+plt.tight_layout()
+
+plt.savefig("grpc_get_users_unary.png")
+
+
+pc_grpc_getUser_avg = np.mean(
+    [
+        pc_grpc_getUser1[:, 2],
+        pc_grpc_getUser2[:, 2],
+        pc_grpc_getUser3[:, 2],
+        pc_grpc_getUser4[:, 2],
+        pc_grpc_getUser5[:, 2],
+    ],
+    axis=0,
+)
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
+    pc_grpc_getUser1[:, 0],
+    pc_grpc_getUser1[:, 2],
+    label="testi 1",
+)
+axs[0].plot(
+    pc_grpc_getUser2[:, 0],
+    pc_grpc_getUser2[:, 2],
+    label="testi 2",
+)
+axs[0].plot(
+    pc_grpc_getUser3[:, 0],
+    pc_grpc_getUser3[:, 2],
+    label="testi 3",
+)
+axs[0].plot(
+    pc_grpc_getUser4[:, 0],
+    pc_grpc_getUser4[:, 2],
+    label="testi 4",
+)
+axs[0].plot(
+    pc_grpc_getUser5[:, 0],
+    pc_grpc_getUser5[:, 2],
+    label="testi 5",
+)
+axs[0].plot(
+    timestamps,
+    pc_grpc_getUser_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[0].legend()
+axs[0].set_title("PC")
 
 laptop_grpc_getUser_avg = np.mean(
     [
@@ -2023,33 +2278,32 @@ laptop_grpc_getUser_avg = np.mean(
     ],
     axis=0,
 )
-fig, ax = plt.subplots()
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUser1[:, 0],
     laptop_grpc_getUser1[:, 2],
     label="testi 1",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUser2[:, 0],
     laptop_grpc_getUser2[:, 2],
     label="testi 2",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUser3[:, 0],
     laptop_grpc_getUser3[:, 2],
     label="testi 3",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUser4[:, 0],
     laptop_grpc_getUser4[:, 2],
     label="testi 4",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_getUser5[:, 0],
     laptop_grpc_getUser5[:, 2],
     label="testi 5",
 )
-ax.plot(
+axs[1].plot(
     timestamps,
     laptop_grpc_getUser_avg,
     label="average",
@@ -2058,11 +2312,64 @@ ax.plot(
     linewidth=2,
 )
 
-ax.legend()
-ax.set_title("Laptop gRPC getUser")
+axs[1].legend()
+axs[1].set_title("Laptop")
 
-# Save the figure as an image file
-plt.savefig("laptop_grpc_getUser.png")
+fig.suptitle("gRPC getUser")
+
+plt.tight_layout()
+
+plt.savefig("grpc_get_user.png")
+
+pc_grpc_createUser_avg = np.mean(
+    [
+        pc_grpc_createUser1[:, 2],
+        pc_grpc_createUser2[:, 2],
+        pc_grpc_createUser3[:, 2],
+        pc_grpc_createUser4[:, 2],
+        pc_grpc_createUser5[:, 2],
+    ],
+    axis=0,
+)
+
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
+    pc_grpc_createUser1[:, 0],
+    pc_grpc_createUser1[:, 2],
+    label="testi 1",
+)
+axs[0].plot(
+    pc_grpc_createUser2[:, 0],
+    pc_grpc_createUser2[:, 2],
+    label="testi 2",
+)
+axs[0].plot(
+    pc_grpc_createUser3[:, 0],
+    pc_grpc_createUser3[:, 2],
+    label="testi 3",
+)
+axs[0].plot(
+    pc_grpc_createUser4[:, 0],
+    pc_grpc_createUser4[:, 2],
+    label="testi 4",
+)
+axs[0].plot(
+    pc_grpc_createUser5[:, 0],
+    pc_grpc_createUser5[:, 2],
+    label="testi 5",
+)
+axs[0].plot(
+    timestamps,
+    pc_grpc_createUser_avg,
+    label="average",
+    color="black",
+    linestyle="--",
+    linewidth=2,
+)
+
+axs[0].legend()
+axs[0].set_title("PC")
 
 laptop_grpc_createUser_avg = np.mean(
     [
@@ -2074,33 +2381,32 @@ laptop_grpc_createUser_avg = np.mean(
     ],
     axis=0,
 )
-fig, ax = plt.subplots()
-ax.plot(
+axs[1].plot(
     laptop_grpc_createUser1[:, 0],
     laptop_grpc_createUser1[:, 2],
     label="testi 1",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_createUser2[:, 0],
     laptop_grpc_createUser2[:, 2],
     label="testi 2",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_createUser3[:, 0],
     laptop_grpc_createUser3[:, 2],
     label="testi 3",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_createUser4[:, 0],
     laptop_grpc_createUser4[:, 2],
     label="testi 4",
 )
-ax.plot(
+axs[1].plot(
     laptop_grpc_createUser5[:, 0],
     laptop_grpc_createUser5[:, 2],
     label="testi 5",
 )
-ax.plot(
+axs[1].plot(
     timestamps,
     laptop_grpc_createUser_avg,
     label="average",
@@ -2109,314 +2415,127 @@ ax.plot(
     linewidth=2,
 )
 
-ax.legend()
-ax.set_title("Laptop gRPC createUser")
+axs[1].legend()
+axs[1].set_title("Laptop")
 
-# Save the figure as an image file
-plt.savefig("laptop_grpc_createUser.png")
-laptop_rest_getUsers_avg = np.mean(
-    [
-        laptop_rest_getUsers1[:, 2],
-        laptop_rest_getUsers2[:, 2],
-        laptop_rest_getUsers3[:, 2],
-        laptop_rest_getUsers4[:, 2],
-        laptop_rest_getUsers5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    laptop_rest_getUsers1[:, 0],
-    laptop_rest_getUsers1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    laptop_rest_getUsers2[:, 0],
-    laptop_rest_getUsers2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    laptop_rest_getUsers3[:, 0],
-    laptop_rest_getUsers3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    laptop_rest_getUsers4[:, 0],
-    laptop_rest_getUsers4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    laptop_rest_getUsers5[:, 0],
-    laptop_rest_getUsers5[:, 2],
-    label="testi 5",
-)
-ax.plot(
+fig.suptitle("gRPC createUser")
+
+plt.tight_layout()
+
+plt.savefig("grpc_create_user.png")
+
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
     timestamps,
-    laptop_rest_getUsers_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
+    pc_grpc_createUser_avg,
+    label="gRPC",
 )
-
-ax.legend()
-ax.set_title("Laptop REST getUsers")
-
-# Save the figure as an image file
-plt.savefig("laptop_rest_getUsers.png")
-
-laptop_rest_getUser_avg = np.mean(
-    [
-        laptop_rest_getUser1[:, 2],
-        laptop_rest_getUser2[:, 2],
-        laptop_rest_getUser3[:, 2],
-        laptop_rest_getUser4[:, 2],
-        laptop_rest_getUser5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    laptop_rest_getUser1[:, 0],
-    laptop_rest_getUser1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    laptop_rest_getUser2[:, 0],
-    laptop_rest_getUser2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    laptop_rest_getUser3[:, 0],
-    laptop_rest_getUser3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    laptop_rest_getUser4[:, 0],
-    laptop_rest_getUser4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    laptop_rest_getUser5[:, 0],
-    laptop_rest_getUser5[:, 2],
-    label="testi 5",
-)
-ax.plot(
-    timestamps,
-    laptop_rest_getUser_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
-)
-
-ax.legend()
-ax.set_title("Laptop REST getUser")
-
-# Save the figure as an image file
-plt.savefig("laptop_rest_getUser.png")
-
-laptop_rest_createUser_avg = np.mean(
-    [
-        laptop_rest_createUser1[:, 2],
-        laptop_rest_createUser2[:, 2],
-        laptop_rest_createUser3[:, 2],
-        laptop_rest_createUser4[:, 2],
-        laptop_rest_createUser5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    laptop_rest_createUser1[:, 0],
-    laptop_rest_createUser1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    laptop_rest_createUser2[:, 0],
-    laptop_rest_createUser2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    laptop_rest_createUser3[:, 0],
-    laptop_rest_createUser3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    laptop_rest_createUser4[:, 0],
-    laptop_rest_createUser4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    laptop_rest_createUser5[:, 0],
-    laptop_rest_createUser5[:, 2],
-    label="testi 5",
-)
-ax.plot(
-    timestamps,
-    laptop_rest_createUser_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
-)
-
-ax.legend()
-ax.set_title("Laptop REST createUser")
-
-# Save the figure as an image file
-plt.savefig("laptop_rest_createUser.png")
-
-# mark
-pc_rest_getUsers_avg = np.mean(
-    [
-        pc_rest_getUsers1[:, 2],
-        pc_rest_getUsers2[:, 2],
-        pc_rest_getUsers3[:, 2],
-        pc_rest_getUsers4[:, 2],
-        pc_rest_getUsers5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    pc_rest_getUsers1[:, 0],
-    pc_rest_getUsers1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    pc_rest_getUsers2[:, 0],
-    pc_rest_getUsers2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    pc_rest_getUsers3[:, 0],
-    pc_rest_getUsers3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    pc_rest_getUsers4[:, 0],
-    pc_rest_getUsers4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    pc_rest_getUsers5[:, 0],
-    pc_rest_getUsers5[:, 2],
-    label="testi 5",
-)
-ax.plot(
-    timestamps,
-    pc_rest_getUsers_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
-)
-
-ax.legend()
-ax.set_title("PC REST getUsers")
-
-# Save the figure as an image file
-plt.savefig("pc_rest_getUsers.png")
-
-pc_rest_getUser_avg = np.mean(
-    [
-        pc_rest_getUser1[:, 2],
-        pc_rest_getUser2[:, 2],
-        pc_rest_getUser3[:, 2],
-        pc_rest_getUser4[:, 2],
-        pc_rest_getUser5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    pc_rest_getUser1[:, 0],
-    pc_rest_getUser1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    pc_rest_getUser2[:, 0],
-    pc_rest_getUser2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    pc_rest_getUser3[:, 0],
-    pc_rest_getUser3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    pc_rest_getUser4[:, 0],
-    pc_rest_getUser4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    pc_rest_getUser5[:, 0],
-    pc_rest_getUser5[:, 2],
-    label="testi 5",
-)
-ax.plot(
-    timestamps,
-    pc_rest_getUser_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
-)
-
-ax.legend()
-ax.set_title("PC REST getUser")
-
-# Save the figure as an image file
-plt.savefig("pc_rest_getUser.png")
-
-pc_rest_createUser_avg = np.mean(
-    [
-        pc_rest_createUser1[:, 2],
-        pc_rest_createUser2[:, 2],
-        pc_rest_createUser3[:, 2],
-        pc_rest_createUser4[:, 2],
-        pc_rest_createUser5[:, 2],
-    ],
-    axis=0,
-)
-fig, ax = plt.subplots()
-ax.plot(
-    pc_rest_createUser1[:, 0],
-    pc_rest_createUser1[:, 2],
-    label="testi 1",
-)
-ax.plot(
-    pc_rest_createUser2[:, 0],
-    pc_rest_createUser2[:, 2],
-    label="testi 2",
-)
-ax.plot(
-    pc_rest_createUser3[:, 0],
-    pc_rest_createUser3[:, 2],
-    label="testi 3",
-)
-ax.plot(
-    pc_rest_createUser4[:, 0],
-    pc_rest_createUser4[:, 2],
-    label="testi 4",
-)
-ax.plot(
-    pc_rest_createUser5[:, 0],
-    pc_rest_createUser5[:, 2],
-    label="testi 5",
-)
-ax.plot(
+axs[0].plot(
     timestamps,
     pc_rest_createUser_avg,
-    label="average",
-    color="black",
-    linestyle="--",
-    linewidth=2,
+    label="REST",
+)
+axs[0].legend()
+axs[0].set_title("PC")
+
+axs[1].plot(
+    timestamps,
+    laptop_grpc_createUser_avg,
+    label="gRPC",
+)
+axs[1].plot(
+    timestamps,
+    laptop_rest_createUser_avg,
+    label="REST",
 )
 
-ax.legend()
-ax.set_title("PC REST createUser")
+axs[1].legend()
+axs[1].set_title("Laptop")
 
-# Save the figure as an image file
-plt.savefig("pc_rest_createUser.png")
+fig.suptitle("createUser")
+
+plt.tight_layout()
+
+plt.savefig("create_user.png")
+
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
+    timestamps,
+    pc_grpc_getUser_avg,
+    label="gRPC",
+)
+axs[0].plot(
+    timestamps,
+    pc_rest_getUser_avg,
+    label="REST",
+)
+axs[0].legend()
+axs[0].set_title("PC")
+
+axs[1].plot(
+    timestamps,
+    laptop_grpc_getUser_avg,
+    label="gRPC",
+)
+axs[1].plot(
+    timestamps,
+    laptop_rest_getUser_avg,
+    label="REST",
+)
+
+axs[1].legend()
+axs[1].set_title("Laptop")
+
+fig.suptitle("getUser")
+
+plt.tight_layout()
+
+plt.savefig("get_user.png")
+
+
+fig, axs = plt.subplots(1, 2, figsize=(10, 4))
+
+axs[0].plot(
+    timestamps,
+    pc_grpc_getUsersStream_avg,
+    label="gRPC stream",
+)
+axs[0].plot(
+    timestamps,
+    pc_grpc_getUsersUnary_avg,
+    label="gRPC unary",
+)
+axs[0].plot(
+    timestamps,
+    pc_rest_getUsers_avg,
+    label="REST",
+)
+axs[0].legend()
+axs[0].set_title("PC")
+
+axs[1].plot(
+    timestamps,
+    laptop_grpc_getUsersStream_avg,
+    label="gRPC stream",
+)
+axs[1].plot(
+    timestamps,
+    laptop_grpc_getUsersUnary_avg,
+    label="gRPC unary",
+)
+axs[1].plot(
+    timestamps,
+    laptop_rest_getUsers_avg,
+    label="REST",
+)
+
+axs[1].legend()
+axs[1].set_title("Laptop")
+
+fig.suptitle("getUsers")
+
+plt.tight_layout()
+
+plt.savefig("get_users.png")
