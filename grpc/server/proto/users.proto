@@ -27,5 +27,4 @@ service Users {
     rpc CreateUser(User) returns (google.protobuf.Empty) {};
     rpc GetUsersStream(google.protobuf.Empty) returns (stream User) {};
     rpc GetUsersUnary(google.protobuf.Empty) returns (UsersResponse) {};
-
 }
